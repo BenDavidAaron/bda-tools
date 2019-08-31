@@ -1,0 +1,18 @@
+atomicwrites==1.3.0
+attrs==19.1.0
+-e git+git@gitlab.com:BenDavidAaron/bda-tools.git@7fcd5c52cf2130d253dc53a5c87d9cb313b166c3#egg=bda_tools
+importlib-metadata==0.19
+more-itertools==7.2.0
+mypy==0.720
+mypy-extensions==0.4.1
+packaging==19.1
+pep8==1.7.1
+pluggy==0.12.0
+py==1.8.0
+pyparsing==2.4.2
+pytest==5.1.2
+six==1.12.0
+typed-ast==1.4.0
+typing-extensions==3.7.4
+wcwidth==0.1.7
+zipp==0.6.0
