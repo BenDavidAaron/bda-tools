@@ -13,7 +13,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 now = datetime.datetime.now()
 
 setup(
-    name="bda-tools",  # Required
+    name="bda_tools",  # Required
     version=f"{now.year}.{now.month}.{now.month}",
     description='Minor tools not worth packaging individually',
     long_description=long_description,
@@ -28,14 +28,6 @@ setup(
     ],
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
     python_requires='>=3.7, <4',
-    # List additional groups of dependencies here (e.g. development
-    # dependencies). Users will be able to install these using the "extras"
-    # syntax, for example:
-    #
-    #   $ pip install sampleproject[dev]
-    #
-    # Similar to `install_requires` above, these must be valid existing
-    # projects.
     extras_require={  # Optional
         'test': ['pytest'],
     }
