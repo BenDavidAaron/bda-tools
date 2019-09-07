@@ -22,5 +22,8 @@ class Caching_Generator(object):
             self.cache.append(item)
         self._position += 1 
         return item
+
+    def __getitem__(self, key) -> Any:
+        return self.cache[key]
         
             

@@ -14,16 +14,6 @@ def test_caching_generator_basic():
         assert item == thing
 
 
-def test_caching_generator_take():
-    g = (x for x in range(10))
-    cg = generators.Caching_Generator(g)
-    assert cg.cache == []
-    assert cg() == 0
-    assert cg.cache == [0]
-    assert cg() == 1
-    assert cg.cache == [0,1]
-
-
 def test_caching_generator_index():
     g = (x for x in range(10))
     cg = generators.Caching_Generator(g)
@@ -33,3 +23,5 @@ def test_caching_generator_index():
     assert cg[5] == 5
     with pytest.raises(IndexError):
         assert cg[11]
+    assert cg[2:5] == [2,3,4,]
+    assert cg[::2] ==[0,2,4,6,8] 
