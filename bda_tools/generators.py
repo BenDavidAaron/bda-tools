@@ -1,4 +1,4 @@
-from typing import Iterable, Any
+from typing import Iterable, Any, Union
 from inspect import isgenerator
 from itertools import islice
 
@@ -6,9 +6,10 @@ class Caching_Generator(object):
     """Wraps a generator and caches returned objects.
     The cache can be iterated over multiple times, unlike a standard generator.
     """
-    def __init__(self, gen: Iterable) -> None:
+    def __init__(self, gen: Iterable, limit: Union[int, None] = None) -> None:
         self.generator: Iterable[Any] = gen
         self.cache: List[Any] = []
+        self.limit: Union[int, None] = limit
 
     def __iter__(self) -> Iterable:
         self._position = 0
