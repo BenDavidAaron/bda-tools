@@ -23,5 +23,19 @@ def test_caching_generator_index():
     assert cg[5] == 5
     with pytest.raises(IndexError):
         assert cg[11]
-    assert cg[2:5] == [2,3,4,]
+    assert cg[2:5] == [2,3,4]
     assert cg[::2] ==[0,2,4,6,8] 
+
+def test_caching_generator_len():
+    g = (x for x in range(10))
+    cg = generators.Caching_Generator(g)
+    for _ in cg:
+        pass
+    assert len(cg) == len([x for x in range(10)])
+
+def test_caching_generator_limit():
+    g = (x for x in range(10))
+    cg = generators.Caching_Generator(g, limit=5)
+    for i in cg:
+        assert isinstance(i, int)
+    assert len(cg) == 5
