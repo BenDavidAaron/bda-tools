@@ -3,7 +3,7 @@ from inspect import isgenerator
 from itertools import islice
 
 class Caching_Generator(object):
-    """Wraps a generator and lazily caches returned objects.
+    """Wraps a generator and caches returned objects.
     The cache can be iterated over multiple times, unlike a standard generator.
     """
     def __init__(self, gen: Iterable) -> None:
@@ -26,4 +26,4 @@ class Caching_Generator(object):
     def __getitem__(self, key) -> Any:
         return self.cache[key]
         
-            
+
