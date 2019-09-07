@@ -17,3 +17,19 @@ def test_caching_generator_basic():
 def test_caching_generator_take():
     g = (x for x in range(10))
     cg = generators.Caching_Generator(g)
+    assert cg.cache == []
+    assert cg() == 0
+    assert cg.cache == [0]
+    assert cg() == 1
+    assert cg.cache == [0,1]
+
+
+def test_caching_generator_index():
+    g = (x for x in range(10))
+    cg = generators.Caching_Generator(g)
+    for _ in cg:
+        pass
+    assert cg[2] == 2
+    assert cg[5] == 5
+    with pytest.raises(IndexError):
+        assert cg[11]
