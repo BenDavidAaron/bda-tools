@@ -16,7 +16,7 @@ class Caching_Generator(object):
         return self
     
     def __next__(self) -> Any:
-        if len(self) >= self.limit and self.limit:
+        if self.limit and self._position >= self.limit:
             raise StopIteration
         if len(self.cache) > self._position:
             item = self.cache[self._position]
