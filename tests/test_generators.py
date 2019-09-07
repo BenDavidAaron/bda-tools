@@ -1,6 +1,14 @@
+import pytest
 from bda_tools import generators
 
-def test_caching_generator_basic():
+@pytest.fixture()
+def test_cg():
+    g = (x for x in range(10))
+    cg = generators.Caching_Generator(g)
+    return cg
+
+
+def test_caching_generator_basic(test_cg):
     g = (x for x in range(10))
     cg = generators.Caching_Generator(g)
     assert cg.cache == []
