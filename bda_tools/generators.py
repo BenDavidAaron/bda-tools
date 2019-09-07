@@ -26,4 +26,5 @@ class Caching_Generator(object):
     def __getitem__(self, key) -> Any:
         return self.cache[key]
         
-
+    def __len__(self) -> int:
+        return len(self.cache)
